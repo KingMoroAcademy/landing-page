@@ -88,15 +88,10 @@ window.addEventListener("scroll", function () {
 /* End Navbar hiding on stop and show on scroll (show when on the page top too) */
 /* End Building the Dynamic the Menu */
 
-// Add class 'active' to section when one of the selected elements is near top of viewport, and class focus to the linked Li
+// Add class 'active' to section when section chaild is near the top of the viewport, and class focus to the linked Li
 for (let section of sections) { // add class active depending on if the section is inside the viewport
     window.addEventListener("scroll", function() {
-        if (inViewPort(section.querySelector("img")) || inViewPort(section.querySelector("p"))) {
-            classChanger(section, "active");
-            // and make the linked li has class focus too
-            let theLi = document.querySelector(`[href = "#${section['id']}"]`).parentElement;
-            classChanger(theLi, "focus");
-        } else if (inViewPort(section.querySelector("h2"))) {
+        if (inViewPort(section.querySelector("img")) || inViewPort(section.querySelector("h2")) || inViewPort(section.querySelector("p"))) {
             classChanger(section, "active");
             // and make the linked li has class focus too
             let theLi = document.querySelector(`[href = "#${section['id']}"]`).parentElement;
