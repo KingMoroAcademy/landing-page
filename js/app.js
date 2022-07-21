@@ -91,7 +91,7 @@ window.addEventListener("scroll", function () {
 // Add class 'active' to section when near top of viewport, and class focus to the linked Li
 for (let section of sections) { // add class active depending on if the section is inside the viewport
     window.addEventListener("scroll", function() {
-        if (inViewPort(section.querySelector("h2"))) { // check if the section header is in the viewport :)
+        if (inViewPort(section.querySelector("h2")) || inViewPort(section.querySelector("img"))) { // check if the section header is in the viewport :)
             classChanger(section, "active");
             // and make the linked li has class focus too
             let theLi = document.querySelector(`[href = "#${section['id']}"]`).parentElement;
