@@ -127,6 +127,10 @@ for (collapser of collapseHeadings) {
     collapser.addEventListener("click", function(event) {
         event.preventDefault();
         let collapsed = this.nextElementSibling;
-        collapsed.style.display === "flex" ? collapsed.style.display = "none" : collapsed.style.display = "flex";
+        if (collapsed.style.display === "flex") {
+            collapsed.style.display = "none"
+        } else {
+            collapsed.style.display = "flex";
+        }    
     })
 }
