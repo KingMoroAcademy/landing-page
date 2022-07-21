@@ -1,0 +1,302 @@
+/* Root rules*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- Base Rules ---- */
+body {
+  background: rgb(21, 164, 247);
+  background: linear-gradient(0deg, rgb(46, 31, 126) 0%, #15a4f7 100%);
+  font-family: "Merriweather", serif;
+  color: #fff;
+  text-shadow: 1px 1px #d1d3ff;
+}
+
+/* Header Styles */
+.page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  overflow: hidden;
+  line-height: 4em;
+}
+.page__header .logo {
+  margin: 0 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+  color: rgb(21, 164, 247);
+}
+.page__header .toggle__menu {
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 1.5rem;
+}
+.page__header .toggle__menu .bar {
+  height: 0.25rem;
+  background: rgb(21, 164, 247);
+}
+.page__header .navbar__menu ul {
+  display: flex;
+  list-style: none;
+}
+.page__header .navbar__menu ul li {
+  padding: 0 1rem;
+  cursor: pointer;
+}
+.page__header .navbar__menu ul li .menu__link {
+  font-weight: bold;
+  color: rgb(21, 164, 247);
+  text-decoration: none;
+}
+.page__header .navbar__menu ul li:hover {
+  background: rgb(79, 33, 196);
+  transition: ease 0.8s all;
+}
+.page__header .navbar__menu ul li:hover .menu__link {
+  color: #fff;
+  transition: ease 0.8s all;
+}
+
+/* Navigation Styles*/
+.focus {
+  background: rgb(21, 164, 247);
+  transition: ease 0.8s all;
+}
+.focus a {
+  color: #fff !important;
+}
+.focus a:hover {
+  color: #fff;
+}
+
+main {
+  margin: 10vh 1em;
+  /* Background Circles */
+  /* Note that background circles are created with psuedo elements before and after */
+  /* Circles appear to be random do to use of :nth-of-type psuedo class */
+  /* ---- Theme State Rules ---- */
+  /* Section Active Styles */
+  /* Note: active class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+}
+main .main__hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  justify-content: center;
+  padding: 2em 10em;
+}
+main .main__hero #hero__heading {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 3em;
+}
+main .main__hero p {
+  padding: 1em 0;
+  font-size: 1.5em;
+}
+main section {
+  position: relative;
+  margin: 2em;
+  min-height: 100vh;
+}
+main section .landing__container {
+  padding: 2em;
+}
+main section .landing__container a {
+  text-decoration: none;
+}
+main section .landing__container .toggle__section h2 {
+  border-bottom: 1px solid #fff;
+  font-family: "Oxygen", Sans-Serif;
+  font-size: 3em;
+  color: #fff;
+  padding-bottom: 0.25em;
+}
+main section .landing__container .section__content {
+  display: flex;
+}
+main section .landing__container .section__content .section__text p {
+  line-height: 1.8em;
+  padding: 2em;
+  text-align: justify;
+  color: #eee;
+}
+main section .landing__container .section__content .section__img img {
+  border-radius: 10px;
+  padding: 2em;
+}
+main section:nth-of-type(odd) .landing__container::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.187);
+  position: absolute;
+  z-index: -5;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+main section:nth-of-type(even) .landing__container .section__content {
+  flex-direction: row-reverse;
+}
+main section:nth-of-type(even) .landing__container::before {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  position: absolute;
+  top: 3em;
+  right: 3em;
+  z-index: -5;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+main section:nth-of-type(3n) .landing__container::after {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -5;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+main section:nth-of-type(3n + 1) .landing__container::after {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  position: absolute;
+  right: 20vw;
+  bottom: -5em;
+  z-index: -5;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+main .active {
+  background: linear-gradient(0deg, rgba(92, 59, 242, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 20px;
+  box-shadow: 5px 10px 18px #4826f6;
+  overflow: hidden;
+  transition: ease 0.5s all;
+}
+main .active .landing__container::before {
+  opacity: 1 !important;
+  -webkit-animation: rotate 4s linear 0s infinite forwards;
+          animation: rotate 4s linear 0s infinite forwards;
+}
+main .active .landing__container::after {
+  opacity: 1 !important;
+  animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+/* ---- Module Rules ---- */
+/* Footer Styles */
+.page__footer {
+  background: #000;
+  padding: 3em;
+}
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.toTopBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 0px;
+  height: 0px;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid rgba(255, 255, 255, 0.4);
+  border-left: 30px solid transparent;
+  z-index: 10;
+  cursor: pointer;
+}
+.toTopBtn:hover {
+  border-bottom: 70px solid rgb(255, 255, 255);
+  transition: ease 0.5s all;
+}
+
+/* Section Active Styles Keyframe Animations */
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+/* Start Media Queries */
+@media (max-width: 75em) {
+  #main .main__hero {
+    text-align: center;
+    padding: 0.3em;
+  }
+  #main .main__hero #hero__heading {
+    font-size: 3em;
+  }
+  #main section .landing__container {
+    padding: 0.3em;
+  }
+  #main section .landing__container .toggle__section h2 {
+    margin-top: 0.5em;
+    text-align: center;
+  }
+  #main section .landing__container .section__content {
+    flex-direction: column;
+  }
+  #main section .landing__container .section__content .section__img {
+    text-align: center;
+  }
+  #main section .landing__container .section__content .section__img img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+@media (max-width: 41em) {
+  .page__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .page__header .toggle__menu {
+    display: flex;
+  }
+  .page__header .navbar__menu {
+    display: none;
+    width: 100%;
+  }
+  .page__header .navbar__menu #navbar__list {
+    flex-direction: column;
+    width: 100%;
+  }
+  .page__header .showMenu {
+    display: flex;
+  }
+}
+/* End Media Queries *//*# sourceMappingURL=styles.css.map */
